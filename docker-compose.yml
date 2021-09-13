@@ -1,3 +1,27 @@
 version: '3'
 
+services:
+  mysql:
+    image: mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=mercafacil
+    - MYSQL_DATABASE=mercafacil
+    - MYSQL_USER=mercafacil
+    - MYSQL_PASSWORD=mercafacil
+    - MYSQL_ROOT_HOST=%
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./data/create-table-user.sql:/docker-entrypoint-initdb.d/create-table-user.sql
+      - ./data/create-table-macapa.sql:/docker-entrypoint-initdb.d/create-table-macapa.sql
 
+  postgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "mercafacil"
+      POSTGRES_USER: "mercafacil"
+    volumes:
+        - ./data/create-table-varejao.sql:/docker-entrypoint-initdb.d/create-table-varejao.sql
