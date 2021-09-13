@@ -4,7 +4,8 @@ const connSQL = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: 'mercafacil', 
-	database: 'mercafacil'
+	database: 'mercafacil',
+	port: "3306"
 })
 
 module.exports = connSQL

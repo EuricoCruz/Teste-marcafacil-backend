@@ -1,14 +1,14 @@
-const pg = require('pg');
+const {Pool, Client} = require('pg');
 
-const config = {
+const pgPool = new Pool ({ 
     host: 'localhost',
-    user: 'root',     
+    user: 'mercafacil',     
     password: 'mercafacil',
     database: 'mercafacil',
-    port: 5432,
-    ssl: true
-};
+    port: "5432"
 
-const pgClient = new pg.Client(config);
+})
 
-module.exports = pgClient;
+
+
+module.exports = pgPool;
