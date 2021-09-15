@@ -6,7 +6,7 @@ function criaTokenJWT(usuario) {
     id: usuario.id 
   };
 
-  const token = jwt.sign(payload, process.env.CHAVE_JWT, {expiresIn: '15m'})
+  const token = jwt.sign(payload, process.env.CHAVE_JWT, {expiresIn: '15m'});
 
   return token;
 
@@ -20,8 +20,8 @@ module.exports = {
       const token = criaTokenJWT(req.user);
       res.set('Authorization', token);
       res.status(201).json(user);
-    } catch (err) {
-      console.log(err)
+    } catch (erro) {
+      console.log(erro);
     }
 
   },

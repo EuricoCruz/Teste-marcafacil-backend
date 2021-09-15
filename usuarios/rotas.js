@@ -14,5 +14,5 @@ module.exports = app => {
 			res.send('Olá, tela de login!');
 		})
 		.post(middlewaresAutenticacao.local,
-					UsuariosControlador.login)
+					UsuariosControlador.login);
 };

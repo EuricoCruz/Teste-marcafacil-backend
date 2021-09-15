@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 
 async function verificaSenha(senha, senhaDoUsuario) {
     const senhaEhValida = await senha === senhaDoUsuario;
-    if(!senhaEhValida) throw new Error('senha ou usuário inválidos')
+    if(!senhaEhValida) throw new Error('senha ou usuário inválidos');
 };
 
 
@@ -21,14 +21,26 @@ passport.use(
     },
     async (nome, senha, done) => {
       try {
-        console.log('entrou aqui')
         const usuario = await UsuarioDaos.buscaPorNome(nome);
-        console.log("1", usuario);
         await verificaSenha(senha, usuario.senha);
         done(null, usuario);
       } catch (erro) {
-        console.log(erro)
+        console.log(erro);
       }
     }
   )
 );
+
+passport.use(
+  new BearerStrategy(
+    async (token, done) => {
+      try {
+        const payload = await jwt.verify(token, process.env.CHAVE_JWT);
+        const usuario = await UsuarioDaos.buscaPorId(payload.id);
+        done(null, usuario, { token: token });
+      } catch (erro) {
+        done(erro);
+      }      
+    }
+  )
+)

@@ -7,7 +7,7 @@ const pgPool = new Pool ({
     database: 'mercafacil',
     port: "5432"
 
-})
+});
 
 
 

@@ -6,7 +6,7 @@ const connSQL = mysql.createConnection({
 	password: 'mercafacil', 
 	database: 'mercafacil',
 	port: "3306"
-})
+});
 
 module.exports = connSQL
 
