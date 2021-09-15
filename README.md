@@ -40,5 +40,9 @@ Com o token em mãos basta apenas usar um post na rota localhost:3000/cadastro c
 As funções vão verificar se o token é válido e se não expirou e vai verificar se há ou não algo no Body.
 Feito isso, ele salva os dados de acordo com as determinações de cada cliente. 
 
+Para verificar como os dados foram salvos, basta entrar no container com o mysql e com o postgres. 
+usuario mercafacil senha mercafacil db mercafacil para ambos
+
+
 
 Grato pela atenção, fico à disposição para dúvidas e feedbacks!
