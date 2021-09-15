@@ -22,8 +22,8 @@ Inicialmente, usando um POSTMAN ou outro softwate para requisições, é preciso
 ou 
 
 {
-  "id": "1", 
-  "nome": "Macapa", 
+  "id": "2", 
+  "nome": "Varejão", 
   "senha 12345"
 }
 
