@@ -6,15 +6,11 @@ module.exports = {
 	 { session :  false}, 
 	 (erro, usuario, info) => {
 		 if (erro) {
-			 res.status(401).json({erro : erro.message})
-		 } 
-
-		 if (erro) {
 			 res.status(500).json(erro)
 		 }
 
 		 if(!usuario){
-			 res.status(401).json()
+			 res.status(401).json();
 		 }
 		 req.user =  usuario;
 		 return next();
